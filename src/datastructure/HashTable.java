@@ -1,23 +1,25 @@
 package datastructure;
 
-import java.lang.reflect.Array;
 
 public class HashTable<K,V> implements HashTableInterface<K,V>{
 
-	private int length;
+	private final static int LENGTH = 10000;
 	private Object[] nodes;
 	
 	public HashTable() {
-		length = 0;
-		nodes = new Object[length];
+		nodes = new Object[LENGTH];
+	}
+	
+	private int hash(K key) {
+		int h = key.hashCode() % LENGTH;
+		if(h<0)
+			h = h * (-1);
+		return h;
 	}
 
 	@Override
 	public boolean isEmpty() {
 		if(nodes==null) {
-			return true;
-		}
-		else if(nodes.length==0) {
 			return true;
 		}
 		else {
@@ -27,48 +29,58 @@ public class HashTable<K,V> implements HashTableInterface<K,V>{
 
 	@Override
 	public int tableLength() {
-		return length;
+		return LENGTH;
 	}
 
 	//chaining
 	@Override
-	public void tableInsert(K key, Node<V> newItem) {
-		if(nodes[(int) key]==null) {
-			nodes[(int) key] = newItem;
+	public void tableInsert(Node<K,V> newItem) {
+		if(nodes[hash(newItem.getKey())]==null) {
+			nodes[hash(newItem.getKey())] = newItem;
 		}
 		else {
 			@SuppressWarnings("unchecked")
-			Node<V> aux = (Node<V>)nodes[(int)key];
-			while(aux.getNext()!=null) {
-				aux = aux.getNext();
-			}
-			aux.setNext(newItem);
+			Node<K,V> aux = (Node<K,V>)nodes[hash(newItem.getKey())];
+			newItem.setNext(aux);
+			nodes[hash(newItem.getKey())] = newItem;
 		}
 	}
-	
 	
 
 	@Override
 	public void tableDelete(K searchKey) {
-		if(nodes[(int) searchKey]!=null) {
+		int sk = hash(searchKey);
+		if(nodes[sk]!=null) {
 			@SuppressWarnings("unchecked")
-			Node<V> aux = (Node<V>)nodes[(int)searchKey];
-			if(aux.getNext()!=null) 
-				nodes[(int)searchKey] = aux.getNext();
+			Node<K,V> aux = (Node<K,V>)nodes[sk];
+			if(aux.getNext()!=null && aux.getNext().getKey()!=searchKey) 
+				nodes[sk] = aux.getNext();
 				
 			else {
-				nodes[(int) searchKey] = null;
+				nodes[sk] = null;
 				
 			}
 		}
 	}
 
 	@Override
-	public V tableRetrieve(K searchKey) {
+	public Node<K,V> tableRetrieve(K searchKey) {
 		@SuppressWarnings("unchecked")
-		Node<V> aux = (Node<V>)nodes[(int) searchKey]; //convertir la llave a un int con la funcion hash
-		V val = aux.getObject();
-		return val;
+		Node<K,V> aux = (Node<K,V>)nodes[hash(searchKey)]; //convertir la llave a un int con la funcion hash
+		if(aux!=null && aux.getKey()!=searchKey) {
+			if(aux.getNext()!=null) {
+				while(aux!=null && aux.getKey()!=searchKey) {
+					aux = aux.getNext();
+				}
+				if(aux==null || aux.getKey()!=searchKey) {
+					aux = null;
+				}
+			}
+			else {
+				return null;
+			}
+		}
+		return aux;
 	}
 
 }

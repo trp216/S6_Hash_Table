@@ -7,10 +7,10 @@ public interface HashTableInterface<T,Z> {
 	
 	int tableLength();
 	
-	void tableInsert(T key, Node<Z> newItem);
+	void tableInsert(Node<T,Z> newItem);
 	
 	void tableDelete(T searchKey);
 	
-	Z tableRetrieve(T searchKey);
+	Node<T,Z>  tableRetrieve(T searchKey);
 
 }

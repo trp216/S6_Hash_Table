@@ -1,13 +1,16 @@
 package datastructure;
 
-public class Node<O> {
+public class Node<L,O> {
 	
-	private Node<O> next;
+	private Node<L,O> next;
 	
 	private O object;
 	
-	public Node(O object) {
+	private L key;
+	
+	public Node(L key, O object) {
 		this.object = object;
+		this.key = key;
 	}
 
 	public O getObject() {
@@ -19,12 +22,20 @@ public class Node<O> {
 	}
 
 
-	public Node<O> getNext() {
+	public Node<L,O> getNext() {
 		return next;
 	}
 
-	public void setNext(Node<O> next) {
+	public void setNext(Node<L,O> next) {
 		this.next = next;
+	}
+
+	public L getKey() {
+		return key;
+	}
+
+	public void setKey(L key) {
+		this.key = key;
 	}
 	
 	
