@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProjectTreeState projectID="umXGOS6GAqAAFwBZ" projectPath="C:\Users\aleja\eclipse-workspace\ESTRUCTURAS 2020-2\S6_DIAZ_ALEJANDRA\doc\classdiagram.vpp">
+	<TreeState name="ModelRepository" viewX="0" viewY="0"/>
+	<TreeState name="DiagramNavigator" viewX="0" viewY="0">
+		<ExpandedPath>DiagramNavigator</ExpandedPath>
+		<ExpandedPath>DiagramNavigator,UML Diagrams</ExpandedPath>
+		<ExpandedPath>ClassDiagram</ExpandedPath>
+		<ExpandedPath>DiagramNavigator,Requirements Capturing</ExpandedPath>
+		<ExpandedPath>DiagramNavigator,Database Modeling</ExpandedPath>
+		<ExpandedPath>DiagramNavigator,Business Modeling</ExpandedPath>
+		<ExpandedPath>DiagramNavigator,SysML</ExpandedPath>
+		<ExpandedPath>DiagramNavigator,Enterprise Architecture</ExpandedPath>
+		<ExpandedPath>DiagramNavigator,Project Management</ExpandedPath>
+		<ExpandedPath>DiagramNavigator,SoaML</ExpandedPath>
+		<ExpandedPath>DiagramNavigator,CMMN</ExpandedPath>
+		<ExpandedPath>DiagramNavigator,Impact Analysis</ExpandedPath>
+		<ExpandedPath>DiagramNavigator,Cloud Architecture</ExpandedPath>
+		<ExpandedPath>DiagramNavigator,Chart</ExpandedPath>
+		<ExpandedPath>DiagramNavigator,Strategic Analysis</ExpandedPath>
+		<ExpandedPath>DiagramNavigator,Network Design</ExpandedPath>
+		<ExpandedPath>DiagramNavigator,Others</ExpandedPath>
+		<SelectedPath>ClassDiagram,icsmOS6GAqAAFwWT</SelectedPath>
+	</TreeState>
+	<TreeState name="ClassBrowser" viewX="0" viewY="0"/>
+	<TreeState name="LogicalView" viewX="0" viewY="0"/>
+	<TreeState name="DiagramBacklog" viewX="0" viewY="0"/>
+</ProjectTreeState>
